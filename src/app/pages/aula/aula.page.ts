@@ -1,10 +1,18 @@
 import { Component } from '@angular/core';
-import { AlertController, MenuController, ModalController, NavController, PopoverController, ToastController } from '@ionic/angular';
-// Call notifications test by Popover and Custom Component.
+import {
+  AlertController,
+  MenuController,
+  ModalController,
+  NavController,
+  PopoverController,
+  ToastController,
+} from '@ionic/angular';
+
 import { NotificationsComponent } from '../../components/notifications/notifications.component';
 import { ImagePage } from '../modal/image/image.page';
 import { AulaFilterPage } from './aula-filter.page';
 
+// Call notifications test by Popover and Custom Component.
 
 @Component({
   selector: 'aula-page',
@@ -12,9 +20,61 @@ import { AulaFilterPage } from './aula-filter.page';
   styleUrls: ['./aula.page.scss']
 })
 export class AulaPage {
-  searchKey = '';
-  yourLocation = '123 Test Street';
-  themeCover = 'assets/img/ionic4-Start-Theme-cover.jpg';
+
+  public listaAula: Array<any>;
+  public aulas: Array<any> = [
+    {
+      professor: { nome: 'Nome do Professor', perfil: { id: 1, descricao: 'Professor' } },
+      data: '2019-02-08T10:00:00.000',
+      tipo: { id: 1, descricao: 'Teórica' },
+      campo: { id: 1, nome: 'Mboi Mirin' }
+    },
+    {
+      professor: { nome: 'Nome do Professor', perfil: { id: 1, descricao: 'Professor' } },
+      data: '2019-02-08T10:00:00.000',
+      tipo: { id: 1, descricao: 'Teórica' },
+      campo: { id: 1, nome: 'Mboi Mirin' }
+    },
+    {
+      professor: { nome: 'Nome do Professor', perfil: { id: 1, descricao: 'Professor' } },
+      data: '2019-02-08T10:00:00.000',
+      tipo: { id: 1, descricao: 'Teórica' },
+      campo: { id: 1, nome: 'Mboi Mirin' }
+    },
+    {
+      professor: { nome: 'Nome do Professor', perfil: { id: 1, descricao: 'Professor' } },
+      data: '2019-02-08T10:00:00.000',
+      tipo: { id: 1, descricao: 'Teórica' },
+      campo: { id: 1, nome: 'Mboi Mirin' }
+    },
+    {
+      professor: { nome: 'Nome do Professor', perfil: { id: 1, descricao: 'Professor' } },
+      data: '2019-02-08T10:00:00.000',
+      tipo: { id: 1, descricao: 'Teórica' },
+      campo: { id: 1, nome: 'Mboi Mirin' }
+    }
+  ];
+
+  initializeItems(): void {
+    this.listaAula = this.aulas;
+  }
+
+  getItems(searchbar) {
+    this.initializeItems();
+    var q = searchbar.srcElement.value;
+    if (!q) {
+      return;
+    }
+
+    this.listaAula = this.listaAula.filter((v) => {
+      if (v.professor.nome && q) {
+        if (v.professor.nome.toLowerCase().indexOf(q.toLowerCase()) > -1) {
+          return true;
+        }
+        return false;
+      }
+    });    
+  }
 
   constructor(
     public navCtrl: NavController,
@@ -24,7 +84,7 @@ export class AulaPage {
     public modalCtrl: ModalController,
     public toastCtrl: ToastController
   ) {
-
+    this.initializeItems();
   }
 
   ionViewWillEnter() {
@@ -39,46 +99,7 @@ export class AulaPage {
     this.navCtrl.navigateForward('aula/aula-form');
   }
 
-  async alertLocation() {
-    const changeLocation = await this.alertCtrl.create({
-      header: 'Change Location',
-      message: 'Type your Address.',
-      inputs: [
-        {
-          name: 'location',
-          placeholder: 'Enter your new Location',
-          type: 'text'
-        },
-      ],
-      buttons: [
-        {
-          text: 'Cancel',
-          handler: data => {
-            console.log('Cancel clicked');
-          }
-        },
-        {
-          text: 'Change',
-          handler: async (data) => {
-            console.log('Change clicked', data);
-            this.yourLocation = data.location;
-            const toast = await this.toastCtrl.create({
-              message: 'Location was change successfully',
-              duration: 3000,
-              position: 'top',
-              closeButtonText: 'OK',
-              showCloseButton: true
-            });
-
-            toast.present();
-          }
-        }
-      ]
-    });
-    changeLocation.present();
-  }
-
-  async searchFilter () {
+  async searchFilter() {
     const modal = await this.modalCtrl.create({
       component: AulaFilterPage
     });

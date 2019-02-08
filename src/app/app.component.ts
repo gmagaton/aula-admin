@@ -30,7 +30,7 @@ export class AppComponent {
       },
       {
         title: 'Professores',
-        url: '/settings',
+        url: '/professor',
         direct: 'forward',
         icon: 'school'
       },
@@ -64,8 +64,16 @@ export class AppComponent {
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
-      this.splashScreen.hide();
+      this.hideSplashScreen();
     }).catch(() => { });
+  }
+
+  hideSplashScreen() {
+    if (this.splashScreen) {
+      setTimeout(() => {
+        this.splashScreen.hide();
+      }, 100);
+    }
   }
 
   goToEditProgile() {

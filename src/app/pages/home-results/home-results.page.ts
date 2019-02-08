@@ -1,18 +1,19 @@
 import { Component } from '@angular/core';
 import {
-  NavController,
   AlertController,
   MenuController,
-  ToastController,
+  ModalController,
+  NavController,
   PopoverController,
-  ModalController } from '@ionic/angular';
+  ToastController,
+} from '@ionic/angular';
+
+import { SearchFilterPage } from '../../pages/modal/search-filter/search-filter.page';
+import { NotificationsComponent } from './../../components/notifications/notifications.component';
+import { ImagePage } from './../modal/image/image.page';
 
 // Modals
-import { SearchFilterPage } from '../../pages/modal/search-filter/search-filter.page';
-import { ImagePage } from './../modal/image/image.page';
 // Call notifications test by Popover and Custom Component.
-import { NotificationsComponent } from './../../components/notifications/notifications.component';
-
 @Component({
   selector: 'app-home-results',
   templateUrl: './home-results.page.html',
@@ -83,6 +84,10 @@ export class HomeResultsPage {
 
   aula() {
     this.navCtrl.navigateForward('aula');
+  }
+
+  professor() {
+    this.navCtrl.navigateForward('professor');
   }
 
 

@@ -1,0 +1,30 @@
+:host {
+    ion-content {
+        --background: var(--ion-color-light);
+    }
+    ion-item {
+        border-radius: 0;
+    }
+    ion-card {
+        &.no-radius {
+            border-radius: 0;
+        }
+    }
+}
+
+.professor {
+    ion-card {
+        ion-item {
+            img {
+                height: 48px;
+                width: 48px;
+                border-radius: 50%;
+                border: solid 4px #fff;
+                display: inline;                
+            }
+        }
+        ion-label {
+            padding-left: 16px;
+        }
+    }
+}

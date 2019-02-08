@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Professores</ion-title>
+    <ion-buttons slot="end">
+      <ion-button size="small" shape="round" color="medium" (click)="professor()">
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar color="dark">
+    <ion-searchbar animated="true" (ionInput)="getItems($event)" placeholder="Por Email"></ion-searchbar>
+    <ion-buttons slot="end">
+      <ion-button size="small" shape="round" color="medium" (click)="searchFilter()">
+        <ion-icon name="options"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="professor">
+  <ion-card no-margin class="no-radius" *ngFor="let p of listaProfessor" (click)="professor(p)">
+    <ion-item lines="none">
+      <img src="assets/img/avatar.jpeg">
+      <ion-label>
+        <strong>
+          <ion-text color="dark">{{p.nome}}</ion-text>
+        </strong>
+        <p>
+          <ion-text color="dark">{{p.email}}</ion-text>
+        </p>
+      </ion-label>
+      <ion-text>{{p.qtdAula}} aula(s)</ion-text>
+    </ion-item>
+  </ion-card>
+</ion-content>
