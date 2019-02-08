@@ -29,18 +29,33 @@ export class AppComponent {
         icon: 'home'
       },
       {
-        title: 'About',
-        url: '/about',
+        title: 'Professores',
+        url: '/settings',
         direct: 'forward',
-        icon: 'information-circle-outline'
+        icon: 'school'
       },
 
       {
-        title: 'App Settings',
-        url: '/settings',
+        title: 'Aulas',
+        url: '/aula',
         direct: 'forward',
-        icon: 'cog'
+        icon: 'book'
+      },
+
+      {
+        title: 'Campos',
+        url: '/edit-profile',
+        direct: 'forward',
+        icon: 'pin'
+      },
+
+      {
+        title: 'Lembretes',
+        url: '/lembrete',
+        direct: 'forward',
+        icon: 'notifications'
       }
+
     ];
 
     this.initializeApp();
@@ -50,7 +65,7 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-    }).catch(() => {});
+    }).catch(() => { });
   }
 
   goToEditProgile() {

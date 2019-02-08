@@ -1,24 +1,17 @@
 import { Component } from '@angular/core';
-import {
-  NavController,
-  AlertController,
-  MenuController,
-  ToastController,
-  PopoverController,
-  ModalController } from '@ionic/angular';
-
-// Modals
-import { SearchFilterPage } from '../../pages/modal/search-filter/search-filter.page';
-import { ImagePage } from './../modal/image/image.page';
+import { AlertController, MenuController, ModalController, NavController, PopoverController, ToastController } from '@ionic/angular';
 // Call notifications test by Popover and Custom Component.
-import { NotificationsComponent } from './../../components/notifications/notifications.component';
+import { NotificationsComponent } from '../../components/notifications/notifications.component';
+import { ImagePage } from '../modal/image/image.page';
+import { AulaFilterPage } from './aula-filter.page';
+
 
 @Component({
-  selector: 'app-home-results',
-  templateUrl: './home-results.page.html',
-  styleUrls: ['./home-results.page.scss']
+  selector: 'aula-page',
+  templateUrl: './aula.page.html',
+  styleUrls: ['./aula.page.scss']
 })
-export class HomeResultsPage {
+export class AulaPage {
   searchKey = '';
   yourLocation = '123 Test Street';
   themeCover = 'assets/img/ionic4-Start-Theme-cover.jpg';
@@ -40,6 +33,10 @@ export class HomeResultsPage {
 
   settings() {
     this.navCtrl.navigateForward('settings');
+  }
+
+  aula() {
+    this.navCtrl.navigateForward('aula/aula-form');
   }
 
   async alertLocation() {
@@ -81,14 +78,9 @@ export class HomeResultsPage {
     changeLocation.present();
   }
 
-  aula() {
-    this.navCtrl.navigateForward('aula');
-  }
-
-
   async searchFilter () {
     const modal = await this.modalCtrl.create({
-      component: SearchFilterPage
+      component: AulaFilterPage
     });
     return await modal.present();
   }

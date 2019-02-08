@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Dados da Aula</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="profile">
+  <ion-card no-margin>
+    <ion-card-content class="bg-profile">
+      <img src="assets/img/avatar_anna.jpg">
+      <h1 class="fw500">Nome</h1>
+      <h2 color="light" margin-bottom>Professora</h2>
+      <ion-button icon-left color="secondary">
+        <ion-icon name="photos"></ion-icon>
+        Alterar / Adicionar Foto
+      </ion-button>
+    </ion-card-content>
+
+    <ion-grid fixed no-padding>
+      <ion-row>
+        <ion-col size="12" padding>
+
+          <ion-list margin-bottom>
+            <ion-list-header color="light">
+              <ion-label class="fw700">Formulário</ion-label>
+            </ion-list-header>
+
+            <ion-item>
+              <ion-label color="dark" position="stacked">Nome Completo:</ion-label>
+              <ion-input inputmode="text" placeholder="Ex..: Ana Maria" value="Nome Completo do Professor"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label color="dark" position="stacked">Email:</ion-label>
+              <ion-input inputmode="email" placeholder="Ex.: ana_maria@gmail.com" value="ana_maria@gmail.com">
+              </ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label color="dark" position="stacked">Celular:</ion-label>
+              <ion-input inputmode="tel" placeholder="Ex.: 11999991088"></ion-input>
+            </ion-item>
+
+          </ion-list>
+
+          <ion-list>
+            <ion-radio-group>
+              <ion-list-header color="light">
+                <ion-label class="fw700">Perfil</ion-label>
+              </ion-list-header>
+
+              <ion-item>
+                <ion-label color="primary">Professor</ion-label>
+                <ion-radio slot="start" value="customer" checked></ion-radio>
+              </ion-item>
+
+              <ion-item>
+                <ion-label color="primary">Coordenador</ion-label>
+                <ion-radio slot="start" value="agent"></ion-radio>
+              </ion-item>
+
+            </ion-radio-group>
+
+            <ion-item>
+              <ion-icon name="hammer" slot="start" color="primary"></ion-icon>
+              <ion-label class="label" color="primary"> Ativo  </ion-label>
+              <ion-toggle></ion-toggle>
+            </ion-item>
+          </ion-list>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-button size="large" expand="full" color="dark" (click)="sendData()" no-margin>Salvar</ion-button>
+  </ion-card>
+
+</ion-content>
