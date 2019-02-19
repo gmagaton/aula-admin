@@ -13,6 +13,7 @@ import { Pages } from './interfaces/pages';
 })
 export class AppComponent {
 
+  public static usuario: Usuario;
   public appPages: Array<Pages>;
 
   constructor(
@@ -82,5 +83,16 @@ export class AppComponent {
 
   logout() {
     this.navCtrl.navigateRoot('/');
+  }
+}
+
+
+export class Usuario {
+  nome: string;
+  email: string;
+
+  constructor(nome: string, email: string){
+    this.nome = nome;
+    this.email = email;
   }
 }

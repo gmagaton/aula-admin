@@ -11,6 +11,7 @@ import {
 import { SearchFilterPage } from '../../pages/modal/search-filter/search-filter.page';
 import { NotificationsComponent } from './../../components/notifications/notifications.component';
 import { ImagePage } from './../modal/image/image.page';
+import { Usuario, AppComponent } from 'src/app/app.component';
 
 // Modals
 // Call notifications test by Popover and Custom Component.
@@ -23,6 +24,7 @@ export class HomeResultsPage {
   searchKey = '';
   yourLocation = '123 Test Street';
   themeCover = 'assets/img/ionic4-Start-Theme-cover.jpg';
+  usuario: Usuario;
 
   constructor(
     public navCtrl: NavController,
@@ -37,6 +39,7 @@ export class HomeResultsPage {
 
   ionViewWillEnter() {
     this.menuCtrl.enable(true);
+    this.usuario = AppComponent.usuario;
   }
 
   settings() {

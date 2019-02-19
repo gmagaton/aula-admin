@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NavController, MenuController, ToastController, AlertController, LoadingController } from '@ionic/angular';
+import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook/ngx';
+import { Firebase } from '@ionic-native/firebase/ngx';
+import { GooglePlus } from '@ionic-native/google-plus/ngx';
+import { AlertController, LoadingController, MenuController, NavController, ToastController } from '@ionic/angular';
+import { AppComponent, Usuario } from 'src/app/app.component';
 
 @Component({
   selector: 'app-login',
@@ -9,6 +13,7 @@ import { NavController, MenuController, ToastController, AlertController, Loadin
 })
 export class LoginPage implements OnInit {
   public onLoginForm: FormGroup;
+  public userData;
 
   constructor(
     public navCtrl: NavController,
@@ -16,7 +21,10 @@ export class LoginPage implements OnInit {
     public toastCtrl: ToastController,
     public alertCtrl: AlertController,
     public loadingCtrl: LoadingController,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private facebook: Facebook,
+    private googlePlus: GooglePlus,
+    private firebase: Firebase
   ) { }
 
   ionViewWillEnter() {
@@ -87,6 +95,44 @@ export class LoginPage implements OnInit {
 
   goToHome() {
     this.navCtrl.navigateRoot('/home-results');
+  }
+
+  loginGoogle() {
+    this.googlePlus.login({})
+      .then(res => {
+        console.log('Logged into Google!', res);
+        this.goToHome();
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  }
+
+  loginFacebook() {
+
+    this.facebook.login(['public_profile', 'user_friends', 'email'])
+      .then((res: FacebookLoginResponse) => {
+        console.log('Logged into Facebook!', res);
+        AppComponent.usuario = new Usuario(res.authResponse.userID, res.authResponse.accessToken);
+        this.goToHome();
+      })
+      .catch(e => {
+        console.log('Error logging into Facebook', e);
+      });
+    /*
+        return this.facebook.login(['email'])
+          .then(response => {
+            const facebookCredential = this.firebase.auth.FacebookAuthProvider
+              .credential(response.authResponse.accessToken);
+    
+            this.firebase.auth().signInWithCredential(facebookCredential)
+              .then(success => {
+                console.log("Firebase success: " + JSON.stringify(success));
+              });
+    
+          }).catch((error) => { console.log(error) });
+          */
+
   }
 
 }

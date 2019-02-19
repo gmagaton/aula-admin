@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "877871600137",
+    "firebase_url": "https://aula-admin.firebaseio.com",
+    "project_id": "aula-admin",
+    "storage_bucket": "aula-admin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:877871600137:android:98e440dcb95dbcdc",
+        "android_client_info": {
+          "package_name": "com.gmagaton.AulaAdmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "877871600137-nl6aimlk81oh7568h1t1rsjhb3bn3qe5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQLFkWSjHncA0rHZEE4qWjnA8zWGXEnmo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
