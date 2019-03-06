@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button text="Voltar"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <ion-text color="light">
+        <ion-text color="light" class="fw700">Campos</ion-text>
+      </ion-text>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button size="small" shape="round" color="medium" (click)="novo()">
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar color="dark">
+    <ion-searchbar animated="true" (ionInput)="getItems($event)" color="dark-shade" placeholder="Nome do Campo"></ion-searchbar>    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card no-margin class="no-radius" *ngFor="let c of listaCampo" (click)="campo()">
+    <ion-item lines="none">
+      <ion-label>
+        <strong>
+          <ion-text color="dark">{{c.nome}}</ion-text>
+        </strong>
+        <p>
+          <ion-text color="primary">{{c.telefone}}</ion-text>
+        </p>        
+      </ion-label>
+    </ion-item>
+  </ion-card>
+
+</ion-content>

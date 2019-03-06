@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button text="Voltar"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <ion-text color="light">
+        <ion-text color="light" class="fw700">Lembretes</ion-text>
+      </ion-text>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card no-margin class="no-radius" *ngFor="let l of listaLembrete">
+    <ion-item lines="none">
+      <ion-label>
+        <strong>
+          <ion-text color="dark"
+            >{{ l.aula.data | date: "dd/MM/yyyy" }} - {{ l.aula.campo.nome }}</ion-text>
+        </strong>
+      </ion-label>
+    </ion-item>
+  </ion-card>
+</ion-content>

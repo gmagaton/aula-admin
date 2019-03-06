@@ -97,7 +97,7 @@ export class HomeResultsPage {
     this.navCtrl.navigateForward('campo');
   }
 
-  lembrete() {
+  lembretes() {
     this.navCtrl.navigateForward('lembrete');
   }
 

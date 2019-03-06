@@ -30,7 +30,8 @@ export class AulaFormPage implements OnInit {
         cssClass: 'bg-profile',
         message: 'Aula Salva com Sucesso!',
         duration: 1000,
-        position: 'bottom'
+        position: 'bottom',
+        closeButtonText: 'Fechar'
       });
 
       toast.present();

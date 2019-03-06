@@ -3,11 +3,11 @@ import { NavController, LoadingController, ToastController } from '@ionic/angula
 
 
 @Component({
-  selector: 'professor-form-page',
-  templateUrl: './professor-form.page.html',
-  styleUrls: ['./professor-form.page.scss'],
+  selector: 'lembrete-form-page',
+  templateUrl: './lembrete-form.page.html',
+  styleUrls: ['./lembrete-form.page.scss'],
 })
-export class ProfessorFormPage implements OnInit {
+export class LembreteFormPage implements OnInit {
 
   constructor(
     public navCtrl: NavController,
@@ -28,14 +28,14 @@ export class ProfessorFormPage implements OnInit {
       const toast = await this.toastCtrl.create({
         showCloseButton: true,
         cssClass: 'bg-profile',
-        message: 'Professor Salvo com Sucesso!',
+        message: 'Campo Salvo com Sucesso!',
         duration: 1000,
         position: 'bottom',
         closeButtonText: 'Fechar'
       });
 
       toast.present();
-      this.navCtrl.navigateForward('aula');
+      this.navCtrl.navigateForward('campo');
     });
   }
 

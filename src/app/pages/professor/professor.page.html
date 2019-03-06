@@ -22,8 +22,8 @@
 
 <ion-content class="professor">
   <ion-card no-margin class="no-radius" *ngFor="let p of listaProfessor" (click)="professor(p)">
-    <ion-item lines="none">
-      <img src="assets/img/avatar.jpeg">
+    <ion-item lines="none">      
+      <ion-icon name="school"></ion-icon>
       <ion-label>
         <strong>
           <ion-text color="dark">{{p.nome}}</ion-text>
