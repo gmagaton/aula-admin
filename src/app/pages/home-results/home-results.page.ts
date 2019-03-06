@@ -93,6 +93,14 @@ export class HomeResultsPage {
     this.navCtrl.navigateForward('professor');
   }
 
+  campos() {
+    this.navCtrl.navigateForward('campo');
+  }
+
+  lembrete() {
+    this.navCtrl.navigateForward('lembrete');
+  }
+
 
   async searchFilter () {
     const modal = await this.modalCtrl.create({

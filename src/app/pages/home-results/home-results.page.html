@@ -19,58 +19,43 @@
 </ion-header>
 
 <ion-content>
-  <ion-card no-margin class="no-radius">
+  <ion-card no-margin class="no-radius" (click)="professor()">
     <ion-item lines="none" color="medium">
       <ion-label>
         <h2 no-margin class="fw500 no-margin">
           <ion-text color="dark">Professor</ion-text>
         </h2>
-
         <p class="text-11x no-margin">
           <ion-text color="primary">Quantidade (20)</ion-text>
         </p>
-      </ion-label>
-      <ion-button shape="round" fill="outline" size="default" color="primary" (click)="professor()">
-        Visualizar
-
-      </ion-button>
+      </ion-label>      
     </ion-item>
   </ion-card>
-  <ion-card no-margin class="no-radius">
+  <ion-card no-margin class="no-radius" (click)="aula()">
     <ion-item lines="none" color="medium">
       <ion-label>
         <h2 no-margin class="fw500 no-margin">
           <ion-text color="dark">Aulas</ion-text>
         </h2>
-
         <p class="text-11x no-margin">
           <ion-text color="primary">Quantidade (200)</ion-text>
         </p>
       </ion-label>
-      <ion-button shape="round" fill="outline" size="default" color="primary" (click)="aula()">
-        Visualizar
-
-      </ion-button>
     </ion-item>
   </ion-card>
-  <ion-card no-margin class="no-radius">
+  <ion-card no-margin class="no-radius" (click)="campos()">
     <ion-item lines="none" color="medium">
       <ion-label>
         <h2 no-margin class="fw500 no-margin">
           <ion-text color="dark">Campos</ion-text>
         </h2>
-
         <p class="text-11x no-margin">
           <ion-text color="primary">Quantidade (7)</ion-text>
         </p>
       </ion-label>
-      <ion-button shape="round" fill="outline" size="default" color="primary" (click)="alertLocation()">
-        Visualizar
-
-      </ion-button>
     </ion-item>
   </ion-card>
-  <ion-card no-margin class="no-radius">
+  <ion-card no-margin class="no-radius" (click)="lembretes()">
     <ion-item lines="none" color="medium">
       <ion-label>
         <h2 no-margin class="fw500 no-margin">
@@ -81,10 +66,6 @@
           <ion-text color="primary">(8) na semana</ion-text>
         </p>
       </ion-label>
-      <ion-button shape="round" fill="outline" size="default" color="primary" (click)="alertLocation()">
-        Visualizar
-
-      </ion-button>
     </ion-item>
   </ion-card>
 

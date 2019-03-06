@@ -61,7 +61,7 @@ export class AulaPage {
 
   getItems(searchbar) {
     this.initializeItems();
-    var q = searchbar.srcElement.value;
+    let q = searchbar.srcElement.value;
     if (!q) {
       return;
     }
@@ -96,6 +96,10 @@ export class AulaPage {
   }
 
   aula() {
+    this.navCtrl.navigateForward('aula/aula-form');
+  }
+
+  novaAula() {
     this.navCtrl.navigateForward('aula/aula-form');
   }
 

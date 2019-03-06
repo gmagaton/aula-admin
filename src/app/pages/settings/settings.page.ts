@@ -28,7 +28,7 @@ export class SettingsPage implements OnInit {
   }
 
   logout() {
-    this.navCtrl.navigateRoot('/');
+    this.navCtrl.navigateRoot('/login');
   }
 
 }

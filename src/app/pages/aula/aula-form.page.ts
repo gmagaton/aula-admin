@@ -18,9 +18,9 @@ export class AulaFormPage implements OnInit {
   ngOnInit() {
   }
 
-  async sendData() {
+  async salvar() {
     const loader = await this.loadingCtrl.create({
-      duration: 2000
+      duration: 1000
     });
 
     loader.present();
@@ -29,7 +29,7 @@ export class AulaFormPage implements OnInit {
         showCloseButton: true,
         cssClass: 'bg-profile',
         message: 'Aula Salva com Sucesso!',
-        duration: 3000,
+        duration: 1000,
         position: 'bottom'
       });
 
